@@ -1,0 +1,30 @@
+# OOP Exam – Python (Orders System)
+
+A clean, testable implementation of the exam spec: customers, orders (Regular/VIP), items, favorites auto-update, and gifts — with OOP best practices.
+
+## Requirements
+- Python 3.10+ (tested on 3.10/3.11)
+- (Optional) venv for isolation
+
+## Setup & Run
+```bash
+python -m venv .venv
+# Windows:
+.venv\Scripts\Activate.ps1
+# macOS/Linux:
+# source .venv/bin/activate
+
+python main.py
+
+
+
+src/
+  enums.py            # PaymentType, CustomerType
+  gifts.py            # Gift (ABC), CouponGift (prints exact message)
+  repositories.py     # OrdersRepository, CustomersRepository (+ reset())
+  order_item.py       # OrderItem (repr, validations)
+  customer.py         # Customer (favorites mgmt, gift ops, repr)
+  order.py            # Abstract Order: common fields, total calc, favorites update
+  regular_order.py    # RegularOrder: total = sum(items)
+  vip_order.py        # VipOrder: VIP-only + discount
+main.py               # Test runner: PASS/FAIL per requirement group
